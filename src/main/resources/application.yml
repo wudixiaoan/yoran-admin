@@ -1,0 +1,18 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:mysql://sh-cynosdbmysql-grp-gwsslv6m.sql.tencentcdb.com:23904/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 097824Pa
+  main:
+    allow-circular-references: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis:
+mapper-locations:
+  - classpath:mapper/*.xml
+  - classpath*:com/**/mapper/*.xml
