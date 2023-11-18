@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://sh-cynosdbmysql-grp-gwsslv6m.sql.tencentcdb.com:23904/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://124.223.218.237:3306/yoran?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
-    password: 097824Pa
+    password: 123456
   main:
     allow-circular-references: true
   mvc:
