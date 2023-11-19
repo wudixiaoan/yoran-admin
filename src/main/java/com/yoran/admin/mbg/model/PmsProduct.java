@@ -17,7 +17,7 @@ public class PmsProduct implements Serializable {
     private String pic;
 
     @ApiModelProperty(value = "商品描述")
-    private String desc;
+    private String description;
 
     @ApiModelProperty(value = "分类ID")
     private Integer categoryId;
@@ -65,12 +65,12 @@ public class PmsProduct implements Serializable {
         this.pic = pic;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getCategoryId() {
@@ -115,7 +115,7 @@ public class PmsProduct implements Serializable {
         sb.append(", barcode=").append(barcode);
         sb.append(", name=").append(name);
         sb.append(", pic=").append(pic);
-        sb.append(", desc=").append(desc);
+        sb.append(", description=").append(description);
         sb.append(", categoryId=").append(categoryId);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
