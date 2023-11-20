@@ -6,6 +6,9 @@
     <result column="barcode" jdbcType="VARCHAR" property="barcode" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="lowest_sale_price" jdbcType="DECIMAL" property="lowestSalePrice" />
+    <result column="purchase_price" jdbcType="DECIMAL" property="purchasePrice" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -71,7 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, barcode, name, pic, description, category_id, create_time, update_time, del_flag
+    id, barcode, name, pic, sale_price, lowest_sale_price, purchase_price, description, 
+    category_id, create_time, update_time, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.yoran.admin.mbg.model.PmsProductExample" resultMap="BaseResultMap">
     select
@@ -108,9 +112,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into pms_product (barcode, name, pic, 
+      sale_price, lowest_sale_price, purchase_price, 
       description, category_id, create_time, 
       update_time, del_flag)
     values (#{barcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{salePrice,jdbcType=DECIMAL}, #{lowestSalePrice,jdbcType=DECIMAL}, #{purchasePrice,jdbcType=DECIMAL}, 
       #{description,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=INTEGER})
   </insert>
@@ -128,6 +134,15 @@
       </if>
       <if test="pic != null">
         pic,
+      </if>
+      <if test="salePrice != null">
+        sale_price,
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price,
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price,
       </if>
       <if test="description != null">
         description,
@@ -154,6 +169,15 @@
       </if>
       <if test="pic != null">
         #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasePrice != null">
+        #{purchasePrice,jdbcType=DECIMAL},
       </if>
       <if test="description != null">
         #{description,jdbcType=VARCHAR},
@@ -193,6 +217,15 @@
       <if test="row.pic != null">
         pic = #{row.pic,jdbcType=VARCHAR},
       </if>
+      <if test="row.salePrice != null">
+        sale_price = #{row.salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="row.lowestSalePrice != null">
+        lowest_sale_price = #{row.lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="row.purchasePrice != null">
+        purchase_price = #{row.purchasePrice,jdbcType=DECIMAL},
+      </if>
       <if test="row.description != null">
         description = #{row.description,jdbcType=VARCHAR},
       </if>
@@ -219,6 +252,9 @@
       barcode = #{row.barcode,jdbcType=VARCHAR},
       name = #{row.name,jdbcType=VARCHAR},
       pic = #{row.pic,jdbcType=VARCHAR},
+      sale_price = #{row.salePrice,jdbcType=DECIMAL},
+      lowest_sale_price = #{row.lowestSalePrice,jdbcType=DECIMAL},
+      purchase_price = #{row.purchasePrice,jdbcType=DECIMAL},
       description = #{row.description,jdbcType=VARCHAR},
       category_id = #{row.categoryId,jdbcType=INTEGER},
       create_time = #{row.createTime,jdbcType=TIMESTAMP},
@@ -239,6 +275,15 @@
       </if>
       <if test="pic != null">
         pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price = #{purchasePrice,jdbcType=DECIMAL},
       </if>
       <if test="description != null">
         description = #{description,jdbcType=VARCHAR},
@@ -263,6 +308,9 @@
     set barcode = #{barcode,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       pic = #{pic,jdbcType=VARCHAR},
+      sale_price = #{salePrice,jdbcType=DECIMAL},
+      lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL},
+      purchase_price = #{purchasePrice,jdbcType=DECIMAL},
       description = #{description,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

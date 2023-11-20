@@ -1,11 +1,11 @@
-package com.yoran.admin.mbg.model;
+package com.yoran.admin.domain.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class PmsProduct implements Serializable {
+public class PmsProductDTO implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "商品条码")
@@ -16,15 +16,6 @@ public class PmsProduct implements Serializable {
 
     @ApiModelProperty(value = "商品图片")
     private String pic;
-
-    @ApiModelProperty(value = "建议售价售价")
-    private BigDecimal salePrice;
-
-    @ApiModelProperty(value = "最低销售价格")
-    private BigDecimal lowestSalePrice;
-
-    @ApiModelProperty(value = "商品进价")
-    private BigDecimal purchasePrice;
 
     @ApiModelProperty(value = "商品描述")
     private String description;
@@ -38,8 +29,6 @@ public class PmsProduct implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
-    @ApiModelProperty(value = "逻辑删除")
-    private Integer delFlag;
 
     private static final long serialVersionUID = 1L;
 
@@ -75,30 +64,6 @@ public class PmsProduct implements Serializable {
         this.pic = pic;
     }
 
-    public BigDecimal getSalePrice() {
-        return salePrice;
-    }
-
-    public void setSalePrice(BigDecimal salePrice) {
-        this.salePrice = salePrice;
-    }
-
-    public BigDecimal getLowestSalePrice() {
-        return lowestSalePrice;
-    }
-
-    public void setLowestSalePrice(BigDecimal lowestSalePrice) {
-        this.lowestSalePrice = lowestSalePrice;
-    }
-
-    public BigDecimal getPurchasePrice() {
-        return purchasePrice;
-    }
-
-    public void setPurchasePrice(BigDecimal purchasePrice) {
-        this.purchasePrice = purchasePrice;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -131,14 +96,6 @@ public class PmsProduct implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(Integer delFlag) {
-        this.delFlag = delFlag;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -149,14 +106,10 @@ public class PmsProduct implements Serializable {
         sb.append(", barcode=").append(barcode);
         sb.append(", name=").append(name);
         sb.append(", pic=").append(pic);
-        sb.append(", salePrice=").append(salePrice);
-        sb.append(", lowestSalePrice=").append(lowestSalePrice);
-        sb.append(", purchasePrice=").append(purchasePrice);
         sb.append(", description=").append(description);
         sb.append(", categoryId=").append(categoryId);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", delFlag=").append(delFlag);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
