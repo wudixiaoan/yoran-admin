@@ -1,6 +1,8 @@
 package com.yoran.admin.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.github.pagehelper.PageHelper;
+import com.yoran.admin.domain.dto.PmsProductDTO;
 import com.yoran.admin.mbg.mapper.PmsProductMapper;
 import com.yoran.admin.mbg.model.PmsProduct;
 import com.yoran.admin.mbg.model.PmsProductExample;
@@ -35,9 +37,20 @@ public class PmsProductServiceImpl implements PmsProductService {
     }
 
     @Override
-    public List<PmsProduct> listProduct(int pageNum, int pageSize) {
+    public List<PmsProduct> listProduct(int pageNum, int pageSize, PmsProductDTO pmsProductDTO) {
         PageHelper.startPage(pageNum, pageSize);
-        return productMapper.selectByExample(new PmsProductExample());
+        PmsProductExample example = new PmsProductExample();
+        PmsProductExample.Criteria criteria = example.createCriteria();
+        if (ObjectUtil.isNotEmpty(pmsProductDTO.getBarcode())) {
+            criteria.andBarcodeLike("%" + pmsProductDTO.getBarcode() + "%");
+        }
+        if (ObjectUtil.isNotEmpty(pmsProductDTO.getName())) {
+            criteria.andNameLike("%" + pmsProductDTO.getName() + "%");
+        }
+        if (ObjectUtil.isNotEmpty(pmsProductDTO.getCategoryId())) {
+            criteria.andCategoryIdEqualTo(pmsProductDTO.getCategoryId());
+        }
+        return productMapper.selectByExample(example);
     }
 
     @Override

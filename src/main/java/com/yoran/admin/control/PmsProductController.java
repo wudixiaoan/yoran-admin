@@ -3,6 +3,7 @@ package com.yoran.admin.control;
 
 import com.yoran.admin.common.api.CommonPage;
 import com.yoran.admin.common.api.CommonResult;
+import com.yoran.admin.domain.dto.PmsProductDTO;
 import com.yoran.admin.mbg.model.PmsProduct;
 import com.yoran.admin.service.PmsProductService;
 import io.swagger.annotations.ApiOperation;
@@ -30,8 +31,9 @@ public class PmsProductController {
     public CommonResult<CommonPage<PmsProduct>> list(@RequestParam(value = "pageNum", defaultValue = "1")
                                                      @ApiParam("页码") Integer pageNum,
                                                      @RequestParam(value = "pageSize", defaultValue = "3")
-                                                     @ApiParam("每页数量") Integer pageSize) {
-        List<PmsProduct> brandList = productService.listProduct(pageNum, pageSize);
+                                                     @ApiParam("每页数量") Integer pageSize,
+                                                     @ModelAttribute PmsProductDTO pmsProductDTO) {
+        List<PmsProduct> brandList = productService.listProduct(pageNum, pageSize, pmsProductDTO);
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 

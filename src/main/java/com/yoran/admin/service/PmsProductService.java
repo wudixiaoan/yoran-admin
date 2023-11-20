@@ -1,5 +1,6 @@
 package com.yoran.admin.service;
 
+import com.yoran.admin.domain.dto.PmsProductDTO;
 import com.yoran.admin.mbg.model.PmsProduct;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public interface PmsProductService {
 
     int deleteProduct(Integer id);
 
-    List<PmsProduct> listProduct(int pageNum, int pageSize);
+    List<PmsProduct> listProduct(int pageNum, int pageSize, PmsProductDTO pmsProductDTO);
 
     PmsProduct getProduct(Integer id);
 
