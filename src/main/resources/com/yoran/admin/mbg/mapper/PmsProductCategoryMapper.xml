@@ -3,7 +3,7 @@
 <mapper namespace="com.yoran.admin.mbg.mapper.PmsProductCategoryMapper">
   <resultMap id="BaseResultMap" type="com.yoran.admin.mbg.model.PmsProductCategory">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
   </resultMap>
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, category_name, create_time, del_flag
+    id, name, create_time, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.yoran.admin.mbg.model.PmsProductCategoryExample" resultMap="BaseResultMap">
     select
@@ -102,9 +102,9 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into pms_product_category (category_name, create_time, del_flag
+    insert into pms_product_category (name, create_time, del_flag
       )
-    values (#{categoryName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=INTEGER}
+    values (#{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yoran.admin.mbg.model.PmsProductCategory">
@@ -113,8 +113,8 @@
     </selectKey>
     insert into pms_product_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="categoryName != null">
-        category_name,
+      <if test="name != null">
+        name,
       </if>
       <if test="createTime != null">
         create_time,
@@ -124,8 +124,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="categoryName != null">
-        #{categoryName,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -147,8 +147,8 @@
       <if test="row.id != null">
         id = #{row.id,jdbcType=INTEGER},
       </if>
-      <if test="row.categoryName != null">
-        category_name = #{row.categoryName,jdbcType=VARCHAR},
+      <if test="row.name != null">
+        name = #{row.name,jdbcType=VARCHAR},
       </if>
       <if test="row.createTime != null">
         create_time = #{row.createTime,jdbcType=TIMESTAMP},
@@ -164,7 +164,7 @@
   <update id="updateByExample" parameterType="map">
     update pms_product_category
     set id = #{row.id,jdbcType=INTEGER},
-      category_name = #{row.categoryName,jdbcType=VARCHAR},
+      name = #{row.name,jdbcType=VARCHAR},
       create_time = #{row.createTime,jdbcType=TIMESTAMP},
       del_flag = #{row.delFlag,jdbcType=INTEGER}
     <if test="example != null">
@@ -174,8 +174,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.yoran.admin.mbg.model.PmsProductCategory">
     update pms_product_category
     <set>
-      <if test="categoryName != null">
-        category_name = #{categoryName,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -188,7 +188,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yoran.admin.mbg.model.PmsProductCategory">
     update pms_product_category
-    set category_name = #{categoryName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       del_flag = #{delFlag,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

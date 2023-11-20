@@ -5,32 +5,23 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class PmsProduct implements Serializable {
+public class PmsProductRebate implements Serializable {
     private Integer id;
 
-    @ApiModelProperty(value = "商品条码")
-    private String productSn;
+    @ApiModelProperty(value = "商品ID")
+    private Integer productId;
 
-    @ApiModelProperty(value = "商品名称")
+    @ApiModelProperty(value = "返利名称")
     private String name;
 
-    @ApiModelProperty(value = "商品图片")
-    private String pic;
-
-    @ApiModelProperty(value = "建议售价售价")
-    private BigDecimal salePrice;
-
-    @ApiModelProperty(value = "最低销售价格")
-    private BigDecimal lowestSalePrice;
-
-    @ApiModelProperty(value = "商品进价")
-    private BigDecimal purchasePrice;
-
-    @ApiModelProperty(value = "商品描述")
+    @ApiModelProperty(value = "返利描述")
     private String description;
 
-    @ApiModelProperty(value = "分类ID")
-    private Integer categoryId;
+    @ApiModelProperty(value = "返利图片")
+    private String pic;
+
+    @ApiModelProperty(value = "返利金额")
+    private BigDecimal price;
 
     @ApiModelProperty(value = "创建时间")
     private Date createTime;
@@ -51,12 +42,12 @@ public class PmsProduct implements Serializable {
         this.id = id;
     }
 
-    public String getProductSn() {
-        return productSn;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProductSn(String productSn) {
-        this.productSn = productSn;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -67,38 +58,6 @@ public class PmsProduct implements Serializable {
         this.name = name;
     }
 
-    public String getPic() {
-        return pic;
-    }
-
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public BigDecimal getSalePrice() {
-        return salePrice;
-    }
-
-    public void setSalePrice(BigDecimal salePrice) {
-        this.salePrice = salePrice;
-    }
-
-    public BigDecimal getLowestSalePrice() {
-        return lowestSalePrice;
-    }
-
-    public void setLowestSalePrice(BigDecimal lowestSalePrice) {
-        this.lowestSalePrice = lowestSalePrice;
-    }
-
-    public BigDecimal getPurchasePrice() {
-        return purchasePrice;
-    }
-
-    public void setPurchasePrice(BigDecimal purchasePrice) {
-        this.purchasePrice = purchasePrice;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -107,12 +66,20 @@ public class PmsProduct implements Serializable {
         this.description = description;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getPic() {
+        return pic;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public Date getCreateTime() {
@@ -146,14 +113,11 @@ public class PmsProduct implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", productSn=").append(productSn);
+        sb.append(", productId=").append(productId);
         sb.append(", name=").append(name);
-        sb.append(", pic=").append(pic);
-        sb.append(", salePrice=").append(salePrice);
-        sb.append(", lowestSalePrice=").append(lowestSalePrice);
-        sb.append(", purchasePrice=").append(purchasePrice);
         sb.append(", description=").append(description);
-        sb.append(", categoryId=").append(categoryId);
+        sb.append(", pic=").append(pic);
+        sb.append(", price=").append(price);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", delFlag=").append(delFlag);

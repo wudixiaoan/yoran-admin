@@ -41,8 +41,8 @@ public class PmsProductServiceImpl implements PmsProductService {
         PageHelper.startPage(pageNum, pageSize);
         PmsProductExample example = new PmsProductExample();
         PmsProductExample.Criteria criteria = example.createCriteria();
-        if (ObjectUtil.isNotEmpty(pmsProductDTO.getBarcode())) {
-            criteria.andBarcodeLike("%" + pmsProductDTO.getBarcode() + "%");
+        if (ObjectUtil.isNotEmpty(pmsProductDTO.getProductSn())) {
+            criteria.andProductSnLike("%" + pmsProductDTO.getProductSn() + "%");
         }
         if (ObjectUtil.isNotEmpty(pmsProductDTO.getName())) {
             criteria.andNameLike("%" + pmsProductDTO.getName() + "%");

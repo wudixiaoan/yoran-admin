@@ -166,73 +166,73 @@ public class PmsProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeIsNull() {
-            addCriterion("barcode is null");
+        public Criteria andProductSnIsNull() {
+            addCriterion("product_sn is null");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeIsNotNull() {
-            addCriterion("barcode is not null");
+        public Criteria andProductSnIsNotNull() {
+            addCriterion("product_sn is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeEqualTo(String value) {
-            addCriterion("barcode =", value, "barcode");
+        public Criteria andProductSnEqualTo(String value) {
+            addCriterion("product_sn =", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeNotEqualTo(String value) {
-            addCriterion("barcode <>", value, "barcode");
+        public Criteria andProductSnNotEqualTo(String value) {
+            addCriterion("product_sn <>", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeGreaterThan(String value) {
-            addCriterion("barcode >", value, "barcode");
+        public Criteria andProductSnGreaterThan(String value) {
+            addCriterion("product_sn >", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeGreaterThanOrEqualTo(String value) {
-            addCriterion("barcode >=", value, "barcode");
+        public Criteria andProductSnGreaterThanOrEqualTo(String value) {
+            addCriterion("product_sn >=", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeLessThan(String value) {
-            addCriterion("barcode <", value, "barcode");
+        public Criteria andProductSnLessThan(String value) {
+            addCriterion("product_sn <", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeLessThanOrEqualTo(String value) {
-            addCriterion("barcode <=", value, "barcode");
+        public Criteria andProductSnLessThanOrEqualTo(String value) {
+            addCriterion("product_sn <=", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeLike(String value) {
-            addCriterion("barcode like", value, "barcode");
+        public Criteria andProductSnLike(String value) {
+            addCriterion("product_sn like", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeNotLike(String value) {
-            addCriterion("barcode not like", value, "barcode");
+        public Criteria andProductSnNotLike(String value) {
+            addCriterion("product_sn not like", value, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeIn(List<String> values) {
-            addCriterion("barcode in", values, "barcode");
+        public Criteria andProductSnIn(List<String> values) {
+            addCriterion("product_sn in", values, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeNotIn(List<String> values) {
-            addCriterion("barcode not in", values, "barcode");
+        public Criteria andProductSnNotIn(List<String> values) {
+            addCriterion("product_sn not in", values, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeBetween(String value1, String value2) {
-            addCriterion("barcode between", value1, value2, "barcode");
+        public Criteria andProductSnBetween(String value1, String value2) {
+            addCriterion("product_sn between", value1, value2, "productSn");
             return (Criteria) this;
         }
 
-        public Criteria andBarcodeNotBetween(String value1, String value2) {
-            addCriterion("barcode not between", value1, value2, "barcode");
+        public Criteria andProductSnNotBetween(String value1, String value2) {
+            addCriterion("product_sn not between", value1, value2, "productSn");
             return (Criteria) this;
         }
 

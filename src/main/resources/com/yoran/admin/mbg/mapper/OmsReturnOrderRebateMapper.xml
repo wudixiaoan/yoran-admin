@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yoran.admin.mbg.mapper.OmsReturnOrderRebateMapper">
+  <resultMap id="BaseResultMap" type="com.yoran.admin.mbg.model.OmsReturnOrderRebate">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="return_order_id" jdbcType="INTEGER" property="returnOrderId" />
+    <result column="return_order_sn" jdbcType="VARCHAR" property="returnOrderSn" />
+    <result column="rebate_id" jdbcType="INTEGER" property="rebateId" />
+    <result column="rebate_pic" jdbcType="VARCHAR" property="rebatePic" />
+    <result column="rebate_name" jdbcType="VARCHAR" property="rebateName" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="rebate_amount" jdbcType="DECIMAL" property="rebateAmount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, return_order_id, return_order_sn, rebate_id, rebate_pic, rebate_name, price, 
+    quantity, rebate_amount
+  </sql>
+  <select id="selectByExample" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebateExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oms_return_order_rebate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from oms_return_order_rebate
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from oms_return_order_rebate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebateExample">
+    delete from oms_return_order_rebate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into oms_return_order_rebate (return_order_id, return_order_sn, rebate_id, 
+      rebate_pic, rebate_name, price, 
+      quantity, rebate_amount)
+    values (#{returnOrderId,jdbcType=INTEGER}, #{returnOrderSn,jdbcType=VARCHAR}, #{rebateId,jdbcType=INTEGER}, 
+      #{rebatePic,jdbcType=VARCHAR}, #{rebateName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{quantity,jdbcType=INTEGER}, #{rebateAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into oms_return_order_rebate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="returnOrderId != null">
+        return_order_id,
+      </if>
+      <if test="returnOrderSn != null">
+        return_order_sn,
+      </if>
+      <if test="rebateId != null">
+        rebate_id,
+      </if>
+      <if test="rebatePic != null">
+        rebate_pic,
+      </if>
+      <if test="rebateName != null">
+        rebate_name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="quantity != null">
+        quantity,
+      </if>
+      <if test="rebateAmount != null">
+        rebate_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="returnOrderId != null">
+        #{returnOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="returnOrderSn != null">
+        #{returnOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateId != null">
+        #{rebateId,jdbcType=INTEGER},
+      </if>
+      <if test="rebatePic != null">
+        #{rebatePic,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateName != null">
+        #{rebateName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="rebateAmount != null">
+        #{rebateAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebateExample" resultType="java.lang.Long">
+    select count(*) from oms_return_order_rebate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update oms_return_order_rebate
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=INTEGER},
+      </if>
+      <if test="row.returnOrderId != null">
+        return_order_id = #{row.returnOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="row.returnOrderSn != null">
+        return_order_sn = #{row.returnOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="row.rebateId != null">
+        rebate_id = #{row.rebateId,jdbcType=INTEGER},
+      </if>
+      <if test="row.rebatePic != null">
+        rebate_pic = #{row.rebatePic,jdbcType=VARCHAR},
+      </if>
+      <if test="row.rebateName != null">
+        rebate_name = #{row.rebateName,jdbcType=VARCHAR},
+      </if>
+      <if test="row.price != null">
+        price = #{row.price,jdbcType=DECIMAL},
+      </if>
+      <if test="row.quantity != null">
+        quantity = #{row.quantity,jdbcType=INTEGER},
+      </if>
+      <if test="row.rebateAmount != null">
+        rebate_amount = #{row.rebateAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update oms_return_order_rebate
+    set id = #{row.id,jdbcType=INTEGER},
+      return_order_id = #{row.returnOrderId,jdbcType=INTEGER},
+      return_order_sn = #{row.returnOrderSn,jdbcType=VARCHAR},
+      rebate_id = #{row.rebateId,jdbcType=INTEGER},
+      rebate_pic = #{row.rebatePic,jdbcType=VARCHAR},
+      rebate_name = #{row.rebateName,jdbcType=VARCHAR},
+      price = #{row.price,jdbcType=DECIMAL},
+      quantity = #{row.quantity,jdbcType=INTEGER},
+      rebate_amount = #{row.rebateAmount,jdbcType=DECIMAL}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebate">
+    update oms_return_order_rebate
+    <set>
+      <if test="returnOrderId != null">
+        return_order_id = #{returnOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="returnOrderSn != null">
+        return_order_sn = #{returnOrderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateId != null">
+        rebate_id = #{rebateId,jdbcType=INTEGER},
+      </if>
+      <if test="rebatePic != null">
+        rebate_pic = #{rebatePic,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateName != null">
+        rebate_name = #{rebateName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="rebateAmount != null">
+        rebate_amount = #{rebateAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yoran.admin.mbg.model.OmsReturnOrderRebate">
+    update oms_return_order_rebate
+    set return_order_id = #{returnOrderId,jdbcType=INTEGER},
+      return_order_sn = #{returnOrderSn,jdbcType=VARCHAR},
+      rebate_id = #{rebateId,jdbcType=INTEGER},
+      rebate_pic = #{rebatePic,jdbcType=VARCHAR},
+      rebate_name = #{rebateName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      quantity = #{quantity,jdbcType=INTEGER},
+      rebate_amount = #{rebateAmount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

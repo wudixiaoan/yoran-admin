@@ -8,7 +8,7 @@ public class PmsProductCategory implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "分类名称")
-    private String categoryName;
+    private String name;
 
     @ApiModelProperty(value = "创建时间")
     private Date createTime;
@@ -26,12 +26,12 @@ public class PmsProductCategory implements Serializable {
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreateTime() {
@@ -57,7 +57,7 @@ public class PmsProductCategory implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", categoryName=").append(categoryName);
+        sb.append(", name=").append(name);
         sb.append(", createTime=").append(createTime);
         sb.append(", delFlag=").append(delFlag);
         sb.append(", serialVersionUID=").append(serialVersionUID);

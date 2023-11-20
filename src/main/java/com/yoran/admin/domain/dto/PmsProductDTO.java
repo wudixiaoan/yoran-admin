@@ -8,7 +8,7 @@ public class PmsProductDTO implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "商品条码")
-    private String barcode;
+    private String productSn;
 
     @ApiModelProperty(value = "商品名称")
     private String name;
@@ -26,12 +26,12 @@ public class PmsProductDTO implements Serializable {
         this.id = id;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getProductSn() {
+        return productSn;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setProductSn(String productSn) {
+        this.productSn = productSn;
     }
 
     public String getName() {
@@ -59,7 +59,7 @@ public class PmsProductDTO implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", barcode=").append(barcode);
+        sb.append(", productSn=").append(productSn);
         sb.append(", name=").append(name);
         sb.append(", categoryId=").append(categoryId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
